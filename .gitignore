@@ -16,3 +16,5 @@ Saved
 Application/*
 Build/Android/*
 Content/MobileStarterContent/*
+*.blend1
+Blender/*.fbx
