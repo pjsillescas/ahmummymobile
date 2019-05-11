@@ -14,6 +14,7 @@ Saved
 *.xcworkspace
 
 Application/*
+Build/
 Build/Android/*
 Content/MobileStarterContent/*
 *.blend1
