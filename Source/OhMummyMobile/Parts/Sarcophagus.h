@@ -47,4 +47,19 @@ public:
 
 	UFUNCTION(BlueprintCallable, BlueprintPure, Category = "Vertices")
 	EVertices GetVertexPosition(class AJunction* Vertex);
+
+	UFUNCTION(BlueprintCallable, BlueprintPure, Category = "Vertices")
+	bool IsNorthEdge(const EVertices Vertex1, const EVertices Vertex2);
+	
+	UFUNCTION(BlueprintCallable, BlueprintPure, Category = "Vertices")
+	bool IsSouthEdge(const EVertices Vertex1, const EVertices Vertex2);
+	
+	UFUNCTION(BlueprintCallable, BlueprintPure, Category = "Vertices")
+	bool IsEastEdge(const EVertices Vertex1, const EVertices Vertex2);
+	
+	UFUNCTION(BlueprintCallable, BlueprintPure, Category = "Vertices")
+	bool IsWestEdge(const EVertices Vertex1, const EVertices Vertex2);
+
+private:
+	bool CompareVertices(const EVertices Vertex1, const EVertices Vertex2, const EVertices Value1, const EVertices Value2);
 };

@@ -104,3 +104,29 @@ EVertices ASarcophagus::GetVertexPosition(class AJunction* Vertex)
 
 	return VertexType;
 }
+
+bool ASarcophagus::CompareVertices(const EVertices Vertex1, const EVertices Vertex2, const EVertices Value1, const EVertices Value2)
+{
+	return Vertex1 == Value1 && Vertex2 == Value2 || Vertex1 == Value2 && Vertex2 == Value1;
+}
+
+bool ASarcophagus::IsNorthEdge(const EVertices Vertex1, const EVertices Vertex2)
+{
+	return CompareVertices(Vertex1,Vertex2,EVertices::EV_Northeast,EVertices::EV_Northwest);
+}
+
+bool ASarcophagus::IsSouthEdge(const EVertices Vertex1, const EVertices Vertex2)
+{
+	return CompareVertices(Vertex1, Vertex2, EVertices::EV_SouthEast, EVertices::EV_Southwest);
+}
+
+bool ASarcophagus::IsEastEdge(const EVertices Vertex1, const EVertices Vertex2)
+{
+	return CompareVertices(Vertex1, Vertex2, EVertices::EV_Northeast, EVertices::EV_SouthEast);
+}
+
+bool ASarcophagus::IsWestEdge(const EVertices Vertex1, const EVertices Vertex2)
+{
+	return CompareVertices(Vertex1, Vertex2, EVertices::EV_Southwest, EVertices::EV_Northwest);
+}
+
