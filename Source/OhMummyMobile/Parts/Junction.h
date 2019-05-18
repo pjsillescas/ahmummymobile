@@ -26,6 +26,8 @@ public:
 	AJunction();
 
 protected:
+	UPROPERTY(VisibleAnywhere,BlueprintReadWrite,Category = "Elements")
+	TArray<class ASarcophagus*> Sarcophaguses;
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
@@ -44,4 +46,7 @@ public:
 
 	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
 	void OnExplorerCollision(class AExplorer* Explorer);
+
+	UFUNCTION(BlueprintCallable)
+	void AddSarcophagus(class ASarcophagus* Sarcophagus);
 };

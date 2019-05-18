@@ -52,3 +52,8 @@ void AJunction::OnCollisionOverlapBegin(class UPrimitiveComponent* OverlappedCom
 		OnExplorerCollision(Explorer);
 	}
 }
+
+void AJunction::AddSarcophagus(class ASarcophagus* Sarcophagus)
+{
+	Sarcophaguses.AddUnique(Sarcophagus);
+}

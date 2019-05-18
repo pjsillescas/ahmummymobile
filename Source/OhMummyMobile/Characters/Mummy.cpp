@@ -10,8 +10,6 @@
 
 AMummy::AMummy()
 {
-	UE_LOG(LogTemp, Warning, TEXT("Mummy init"));
-
 	//GetMesh()->OnComponentBeginOverlap.AddDynamic(this, &AMummy::BeginOverlap);
 }
 
@@ -22,7 +20,6 @@ void AMummy::BeginOverlap(class UPrimitiveComponent* OverlappedComponent,
 	bool bFromSweep,
 	const FHitResult &SweepResult)
 {
-	UE_LOG(LogTemp, Warning, TEXT("Mummy overlap"));
 	AExplorer* Explorer = Cast<AExplorer>(OtherActor);
 
 	if (Explorer != nullptr)
