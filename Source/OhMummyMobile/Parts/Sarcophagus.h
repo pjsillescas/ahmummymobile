@@ -6,6 +6,16 @@
 #include "GameFramework/Actor.h"
 #include "Sarcophagus.generated.h"
 
+UENUM(BlueprintType)
+enum class EVertices : uint8
+{
+	EV_None UMETA(DisplayName = "None"),
+	EV_Northwest UMETA(DisplayName = "NorthWest"),
+	EV_Northeast UMETA(DisplayName = "NorthEast"),
+	EV_Southwest UMETA(DisplayName = "SouthWest"),
+	EV_SouthEast UMETA(DisplayName = "SouthEast"),
+};
+
 UCLASS()
 class OHMUMMYMOBILE_API ASarcophagus : public AActor
 {
@@ -16,13 +26,6 @@ public:
 	ASarcophagus();
 
 protected:
-	/*
-	UPROPERTY(VisibleAnywhere,BlueprintReadWrite,Category = "Setup")
-	int32 Width;
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Setup")
-	int32 Height;
-	*/
-
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Setup")
 	class AJunction* NWVertex;
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Setup")
@@ -34,15 +37,14 @@ protected:
 
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
-	/*
-	UFUNCTION(BlueprintCallable,Category = "Init")
-	void InitializeSize(class UStaticMeshComponent* Mesh);
-	*/
+	
 	UFUNCTION(BlueprintCallable, Category = "Init")
 	bool GetVertices(class UStaticMeshComponent* Mesh);
 
-public:	
+public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	UFUNCTION(BlueprintCallable, BlueprintPure, Category = "Vertices")
+	EVertices GetVertexPosition(class AJunction* Vertex);
 };

@@ -27,17 +27,7 @@ void ASarcophagus::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 
 }
-/*
-void ASarcophagus::InitializeSize(UStaticMeshComponent* Mesh)
-{
-	FVector Origin, BoxExtent;
-	float SphereRadius;
-	UKismetSystemLibrary::GetComponentBounds(Mesh, Origin, BoxExtent, SphereRadius);
 
-	Height = FMath::TruncToInt(BoxExtent.X) * 2;
-	Width = FMath::TruncToInt(BoxExtent.Y) * 2;
-}
-*/
 bool ASarcophagus::GetVertices(class UStaticMeshComponent* Mesh)
 {
 	FVector Origin, BoxExtent;
@@ -95,4 +85,22 @@ bool ASarcophagus::GetVertices(class UStaticMeshComponent* Mesh)
 	}
 
 	return Success;
+}
+
+EVertices ASarcophagus::GetVertexPosition(class AJunction* Vertex)
+{
+	EVertices VertexType;
+
+	if (Vertex == NWVertex)
+		VertexType = EVertices::EV_Northwest;
+	else if (Vertex == NEVertex)
+		VertexType = EVertices::EV_Northeast;
+	else if (Vertex == SWVertex)
+		VertexType = EVertices::EV_Southwest;
+	else if (Vertex == SEVertex)
+		VertexType = EVertices::EV_SouthEast;
+	else
+		VertexType = EVertices::EV_None;
+
+	return VertexType;
 }

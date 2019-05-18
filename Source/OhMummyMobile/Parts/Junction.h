@@ -6,16 +6,6 @@
 #include "GameFramework/Actor.h"
 #include "Junction.generated.h"
 
-UENUM(BlueprintType)
-enum class EVertices : uint8
-{
-	EV_None UMETA(DisplayName="None"),
-	EV_Northwest UMETA(DisplayName = "NorthWest"),
-	EV_Northeast UMETA(DisplayName = "NorthEast"),
-	EV_Southwest UMETA(DisplayName = "SouthWest"),
-	EV_SouthEast UMETA(DisplayName = "SouthEast"),
-};
-
 UCLASS()
 class OHMUMMYMOBILE_API AJunction : public AActor
 {
