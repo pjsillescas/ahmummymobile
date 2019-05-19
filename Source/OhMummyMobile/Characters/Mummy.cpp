@@ -45,7 +45,6 @@ void AMummy::BeginOverlap(class UPrimitiveComponent* OverlappedComponent,
 				GameMode->TakeLifeEvent();
 				bIsDead = true;
 				PlayDeathAnimation();
-				UE_LOG(LogTemp,Warning,TEXT("Killing mummy c++"));
 				GameInstance->AddKilledMummy();
 //				Destroy();
 			}
