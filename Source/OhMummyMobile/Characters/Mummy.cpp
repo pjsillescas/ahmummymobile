@@ -30,19 +30,24 @@ void AMummy::BeginOverlap(class UPrimitiveComponent* OverlappedComponent,
 
 		if (GameInstance->GetHasScroll())
 		{
+			GetCapsuleComponent()->SetGenerateOverlapEvents(false);
 			bIsDead = true;
+			PlayDeathAnimation();
 			GameInstance->AddKilledMummy();
-			Destroy();
+//			Destroy();
 		}
 		else
 		{
 			if (!Explorer->GetIsInvincible())
 			{
+				GetCapsuleComponent()->SetGenerateOverlapEvents(false);
 				AOMGameModeBase* GameMode = Cast<AOMGameModeBase>(GetWorld()->GetAuthGameMode());
 				GameMode->TakeLifeEvent();
 				bIsDead = true;
+				PlayDeathAnimation();
+				UE_LOG(LogTemp,Warning,TEXT("Killing mummy c++"));
 				GameInstance->AddKilledMummy();
-				Destroy();
+//				Destroy();
 			}
 		}
 	}

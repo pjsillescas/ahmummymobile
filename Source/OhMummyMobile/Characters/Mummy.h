@@ -29,4 +29,7 @@ public:
 	virtual void BeginPlay() override;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Status")
 	bool bIsDead;
+
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+	void PlayDeathAnimation();
 };
