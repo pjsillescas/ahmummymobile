@@ -27,4 +27,6 @@ public:
 	AMummy();
 
 	virtual void BeginPlay() override;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Status")
+	bool bIsDead;
 };

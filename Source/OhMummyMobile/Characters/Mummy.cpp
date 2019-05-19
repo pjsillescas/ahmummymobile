@@ -11,6 +11,8 @@
 AMummy::AMummy()
 {
 	//GetMesh()->OnComponentBeginOverlap.AddDynamic(this, &AMummy::BeginOverlap);
+
+	bIsDead = false;
 }
 
 void AMummy::BeginOverlap(class UPrimitiveComponent* OverlappedComponent,
@@ -28,6 +30,7 @@ void AMummy::BeginOverlap(class UPrimitiveComponent* OverlappedComponent,
 
 		if (GameInstance->GetHasScroll())
 		{
+			bIsDead = true;
 			GameInstance->AddKilledMummy();
 			Destroy();
 		}
@@ -37,6 +40,7 @@ void AMummy::BeginOverlap(class UPrimitiveComponent* OverlappedComponent,
 			{
 				AOMGameModeBase* GameMode = Cast<AOMGameModeBase>(GetWorld()->GetAuthGameMode());
 				GameMode->TakeLifeEvent();
+				bIsDead = true;
 				GameInstance->AddKilledMummy();
 				Destroy();
 			}
