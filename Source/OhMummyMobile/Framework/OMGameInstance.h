@@ -12,7 +12,7 @@ struct FGameData
 	GENERATED_BODY()
 
 	UPROPERTY(EditAnywhere,BlueprintReadWrite,Category = "Game Data")
-	int32 Lives = 5;
+	int32 Lives = 1;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Game Data")
 	int32 Score = 0;

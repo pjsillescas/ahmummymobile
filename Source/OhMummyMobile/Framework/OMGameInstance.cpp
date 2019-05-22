@@ -75,7 +75,7 @@ int32 UOMGameInstance::AddKilledMummy()
 
 void UOMGameInstance::Reset()
 {
-	GameData.Lives = 5;
+	GameData.Lives = 1;
 	GameData.Score = 0;
 	GameData.RoomNumber = 0;
 	GameData.bHasKey = false;
