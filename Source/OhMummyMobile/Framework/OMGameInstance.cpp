@@ -79,7 +79,7 @@ void UOMGameInstance::SetHasScroll(bool bHasScroll)
 
 void UOMGameInstance::Reset()
 {
-	GameData.Lives = 1;
+	GameData.Lives = 5;
 	GameData.Score = 0;
 	GameData.RoomNumber = 0;
 	GameData.bHasKey = false;
