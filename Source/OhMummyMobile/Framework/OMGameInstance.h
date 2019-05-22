@@ -79,4 +79,7 @@ public:
 	void Reset();
 	UFUNCTION(BlueprintCallable,BlueprintPure)
 	bool IsLevelFinished();
+
+	UFUNCTION(BlueprintCallable)
+	void SetHasScroll(bool bHasScroll);
 };

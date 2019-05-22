@@ -69,8 +69,12 @@ bool UOMGameInstance::IsLevelFinished()
 int32 UOMGameInstance::AddKilledMummy()
 {
 	AddScore(DEFAULT_MUMMY_KILLED_POINTS);
-	GameData.bHasScroll = false;
 	return GameData.Score;
+}
+
+void UOMGameInstance::SetHasScroll(bool bHasScroll)
+{
+	GameData.bHasScroll = bHasScroll;
 }
 
 void UOMGameInstance::Reset()

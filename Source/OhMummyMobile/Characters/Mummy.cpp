@@ -32,6 +32,7 @@ void AMummy::BeginOverlap(class UPrimitiveComponent* OverlappedComponent,
 		{
 			GetCapsuleComponent()->SetGenerateOverlapEvents(false);
 			bIsDead = true;
+			GameInstance->SetHasScroll(false);
 			PlayDeathAnimation();
 			GameInstance->AddKilledMummy();
 //			Destroy();
@@ -42,10 +43,10 @@ void AMummy::BeginOverlap(class UPrimitiveComponent* OverlappedComponent,
 			{
 				GetCapsuleComponent()->SetGenerateOverlapEvents(false);
 				AOMGameModeBase* GameMode = Cast<AOMGameModeBase>(GetWorld()->GetAuthGameMode());
+				GameInstance->AddKilledMummy();
 				GameMode->TakeLifeEvent();
 				bIsDead = true;
 				PlayDeathAnimation();
-				GameInstance->AddKilledMummy();
 //				Destroy();
 			}
 		}
