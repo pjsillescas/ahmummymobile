@@ -13,6 +13,7 @@ AMummy::AMummy()
 	//GetMesh()->OnComponentBeginOverlap.AddDynamic(this, &AMummy::BeginOverlap);
 
 	bIsDead = false;
+	bCanDamage = false;
 }
 
 void AMummy::BeginOverlap(class UPrimitiveComponent* OverlappedComponent,
@@ -24,7 +25,7 @@ void AMummy::BeginOverlap(class UPrimitiveComponent* OverlappedComponent,
 {
 	AExplorer* Explorer = Cast<AExplorer>(OtherActor);
 
-	if (Explorer != nullptr)
+	if (Explorer != nullptr && bCanDamage)
 	{
 		UOMGameInstance* GameInstance = Cast<UOMGameInstance>(GetGameInstance());
 

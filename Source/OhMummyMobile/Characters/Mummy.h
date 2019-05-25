@@ -30,6 +30,9 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Status")
 	bool bIsDead;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Status")
+	bool bCanDamage;
+	
 	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
 	void PlayDeathAnimation();
 };
