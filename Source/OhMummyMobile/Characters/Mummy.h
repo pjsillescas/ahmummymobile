@@ -22,17 +22,18 @@ protected:
 		int32 OtherBodyIndex,
 		bool bFromSweep,
 		const FHitResult &SweepResult);
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Status")
+	bool bCanDamage;
 
 public:
 	AMummy();
 
 	virtual void BeginPlay() override;
+	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Status")
 	bool bIsDead;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Status")
-	bool bCanDamage;
-	
 	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
 	void PlayDeathAnimation();
 };
